@@ -1,5 +1,5 @@
 'use client';
-import { supabaseBrowser } from '@/lib/supabaseBrowser';
+import { supabaseBrowser } from '../../lib/supabaseBrowser';
 import { useState } from 'react';
 
 export default function SignInPage(){
