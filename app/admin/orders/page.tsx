@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { supabaseBrowser } from '../../lib/supabaseBrowser';
+import { supabaseBrowser } from '../../../lib/supabaseBrowser';
 
 type Order = { id:number; customer_email:string|null; customer_name:string|null; status:'requested'|'confirmed'|'cancelled'|'fulfilled'; created_at:string };
 type OrderItem = { id:number; order_id:number; product_id:number; qty:number; name?:string };
