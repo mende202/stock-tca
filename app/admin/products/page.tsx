@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { supabaseBrowser } from '@/lib/supabaseBrowser';
-
+import { supabaseBrowser } from '../../lib/supabaseBrowser';
 type Product = { id:number; name:string; description?:string|null; image_url?:string|null; price:number; stock:number; is_active:boolean; category_id:number|null };
 type Category = { id:number; name:string };
 
