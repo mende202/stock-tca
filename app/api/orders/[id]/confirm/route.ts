@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '../../../../lib/supabaseAdmin';
+import { supabaseAdmin } from '../../../../../lib/supabaseAdmin';
 
 export async function POST(_req: NextRequest, { params }: { params: { id: string } }){
   const orderId = Number(params.id);
   try{
-    // Get order + items
     const { data: order } = await supabaseAdmin.from('orders').select('*').eq('id', orderId).single();
     if(!order) return NextResponse.json({ error: 'Pedido no encontrado' }, { status: 404 });
     if(order.status !== 'requested' && order.status !== 'cancelled'){
@@ -13,7 +12,6 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
     const { data: items } = await supabaseAdmin.from('order_items').select('*').eq('order_id', orderId);
     if(!items || items.length===0) return NextResponse.json({ error: 'Pedido vacío' }, { status: 400 });
 
-    // Validate stock again and discount
     const ids = items.map((it:any)=>it.product_id);
     const { data: prods } = await supabaseAdmin.from('products').select('id,stock,is_active').in('id', ids);
     const map = new Map(prods!.map((p:any)=>[p.id, p]));

@@ -8,7 +8,7 @@ export async function POST(req: NextRequest){
       return NextResponse.json({ error: 'Carrito vacío' }, { status: 400 });
     }
 
-    // Solo validar stock, NO descontar
+    // Validate stock only, do not discount here
     const ids = items.map((i:any)=> i.product_id);
     const { data: prods, error: e1 } = await supabaseAdmin
       .from('products')

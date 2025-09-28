@@ -1,6 +1,6 @@
 'use client';
-import ProductCard, { type Product } from '@/components/ProductCard';
-import { useCart } from '@/components/CartContext';
+import ProductCard, { type Product } from '../components/ProductCard';
+import { useCart } from '../components/CartContext';
 import { useMemo, useState } from 'react';
 type Cat = { id:number; name:string };
 export default function ProductsClient({ products, categories }:{products: Product[], categories: Cat[]}){

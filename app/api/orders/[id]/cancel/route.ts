@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { supabaseAdmin } from '../../../../../lib/supabaseAdmin';
 
 export async function POST(_req: NextRequest, { params }: { params: { id: string } }){
   const orderId = Number(params.id);
@@ -10,7 +10,6 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
     const { data: items } = await supabaseAdmin.from('order_items').select('*').eq('order_id', orderId);
     if(!items) return NextResponse.json({ error: 'Pedido sin items' }, { status: 400 });
 
-    // If it was confirmed, restock
     if(order.status === 'confirmed'){
       for(const it of items){
         const { data: p } = await supabaseAdmin.from('products').select('id,stock').eq('id', it.product_id).single();

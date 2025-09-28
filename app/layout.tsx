@@ -1,6 +1,6 @@
 import './globals.css';
 
-const BRAND_NAME = process.env.BRAND_NAME || 'Mi Tienda';
+const BRAND_NAME = process.env.BRAND_NAME || 'stock tca';
 
 export const metadata = { title: BRAND_NAME, description: 'Catálogo con pedidos y admin' }
 
