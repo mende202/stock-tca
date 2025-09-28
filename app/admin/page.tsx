@@ -1,6 +1,28 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { supabaseBrowser } from '@/lib/supabaseBrowser';
+import { supabaseBrowser } from '../../lib/supabaseBrowser';
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "baseUrl": ".",
+    "paths": { "@/": ["./"] }
+  },
+  "include": ["next-env.d.ts","*/.ts","*/.tsx"],
+  "exclude": ["node_modules"]
+}
 
 type User = { email?: string | null };
 function useSession(){
