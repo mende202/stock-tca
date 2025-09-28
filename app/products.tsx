@@ -1,4 +1,4 @@
-import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { supabaseAdmin } from '../lib/supabaseAdmin';
 import React from 'react';
 import dynamic from 'next/dynamic';
 const ClientView = dynamic(() => import('./productsClient'), { ssr: false });
