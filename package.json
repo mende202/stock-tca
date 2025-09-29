@@ -1,9 +1,4 @@
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"],
-      "@/lib/*": ["app/lib/*"]
-    }
-  }
+"dependencies": {
+  "next": "^13.0.0",
+  ...
 }
