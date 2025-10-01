@@ -1,8 +1,9 @@
 import './globals.css';
+import Providers from './providers'; // 👈 importar
 
 const BRAND_NAME = process.env.BRAND_NAME || 'stock tca';
 
-export const metadata = { title: BRAND_NAME, description: 'Catálogo con pedidos y admin' }
+export const metadata = { title: BRAND_NAME, description: 'Catálogo con pedidos y admin' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,10 +22,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </div>
         </div>
+
+        {/* 👇 envolver TODAS las páginas con el provider */}
         <div className="container" style={{paddingTop:16}}>
-          {children}
+          <Providers>{children}</Providers>
         </div>
       </body>
     </html>
-  )
+  );
 }
