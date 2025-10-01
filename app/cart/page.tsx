@@ -2,7 +2,10 @@
 import { CartProvider, useCart } from '../../components/CartContext';
 import { useState } from 'react';
 
-// ====== ESTE ES EL CONTENIDO ORIGINAL, PERO COMO "Inner" ======
+// Evita prerender SSR estricto
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 function InnerCartPage(){
   const { items, setQty, remove, clear } = useCart();
   const [email, setEmail] = useState('');
@@ -65,11 +68,11 @@ function InnerCartPage(){
         {msg && <p>{msg}</p>}
       </div>
     </div>
-  )
+  );
 }
 
-// ====== ENVOLVEMOS /cart CON EL PROVIDER ======
 export default function CartPage(){
+  // Provider local por si el global aún no aplica durante el build
   return (
     <CartProvider>
       <InnerCartPage />
