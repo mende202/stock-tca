@@ -1,8 +1,9 @@
 'use client';
-import { useCart } from '../../components/CartContext';
+import { CartProvider, useCart } from '../../components/CartContext';
 import { useState } from 'react';
 
-export default function CartPage(){
+// ====== ESTE ES EL CONTENIDO ORIGINAL, PERO COMO "Inner" ======
+function InnerCartPage(){
   const { items, setQty, remove, clear } = useCart();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -65,4 +66,13 @@ export default function CartPage(){
       </div>
     </div>
   )
+}
+
+// ====== ENVOLVEMOS /cart CON EL PROVIDER ======
+export default function CartPage(){
+  return (
+    <CartProvider>
+      <InnerCartPage />
+    </CartProvider>
+  );
 }
