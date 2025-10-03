@@ -2,7 +2,6 @@
 import { CartProvider, useCart } from '../../components/CartContext';
 import { useState } from 'react';
 
-// Evita prerender SSR estricto
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
