@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
 
+        {/* 👇 Envolvemos TODAS las páginas con el provider */}
         <div className="container" style={{paddingTop:16}}>
           <Providers>{children}</Providers>
         </div>
