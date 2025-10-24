@@ -1,8 +1,8 @@
-import { createClient } from "@supabase/supabase-js";
+import { createBrowserClient } from '@supabase/ssr';
 
-// Cliente de Supabase para el navegador (usa la ANON KEY)
-export const supabaseBrowser = () =>
-  createClient(
+export const supabaseBrowser = () => {
+  return createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
+};
