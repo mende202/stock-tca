@@ -1,4 +1,4 @@
-:root{--brand-primary:#1E40AF;--brand-secondary:#38BDF8}
+:root{--brand-primary:#1f4de2;--brand-secondary:#38BDF8}
 *{box-sizing:border-box}body{font-family:system-ui,Arial,Helvetica,sans-serif;margin:0;color:#222}
 a{color:inherit}table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:6px 8px}
 input,select,button,textarea{font:inherit}.container{max-width:1000px;margin:0 auto;padding:16px}
